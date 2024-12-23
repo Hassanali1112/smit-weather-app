@@ -1,0 +1,11 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.weather-container{
+  width: 400px;
+  height: 350px;
+  background: linear-gradient(rgb(107, 157, 177), rgb(53, 77, 83)) ;
+
+}
