@@ -1,11 +1,36 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.weather-container{
+
+.weather-container {
   width: 400px;
   height: 350px;
-  background: linear-gradient(rgb(107, 157, 177), rgb(53, 77, 83)) ;
+  background: rgba(52, 111, 156, 0.473);
+  border-radius: 16px;
+}
 
+body {
+  width: 100%;
+  background: url('./images/blue.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+form input {
+  padding-left: 8px;
+  outline: none;
+  border: none;
+}
+
+.icon-container {
+  height: 4rem;
+
+}
+
+.icon-container i {
+  font-style: 4rem;
+  border: 1px solid red;
 }

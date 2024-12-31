@@ -6,28 +6,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <!-- bootstrap 5 css cdn -->
-   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- bootstrap icon cdn -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
-  <div class="container my-3">
+  <div class="container my-3 text-light ">
     <div class="row justify-content-center">
-      <div class="col-lg-4 border rounded py-2 weather-container">
-        <form class="search-section w-100">
-          <input type="text" name="city py-3" id="cityName" class="w-100 rounded bg-secondary text-danger" placeholder="Search city on contry">
+      <div class="col-md-5 col-sm-10 col-10 py-3 weather-container border">
+        <form class="search-section ">
+          <input type="text" name="city py-3" id="cityName" class="w-100 rounded text-primary"
+            placeholder="Search city on contry">
           <!-- <input type="submit" class="rounded px-3 bg-info" value="Search"> -->
         </form>
 
-        <div class="weather-data my-3">
-          <h6 class="tem"></h6>
+        <div class="weather-data my-2">
+
+          <div class="icon-tem d-flex justify-content-center align-items-center mt-4 gap-2 py-2">
+            <img src="" class="icon" width="70" height="70" alt="">
+            <h6 class="tem h1">25 &#8451;</h6>
+          </div>
+          <div class="text text-center h4 text-capitalize">ttt</div>
+
         </div>
-       
+        <div class="row mx-1 justify-content-around gap-4 my-3">
+          <div class="col-sm-5 col-4 d-flex gap-2 justify-content-center align-items-center">
+            <h5 class="mosText h1">4</h5>
+            <i class="bi bi-moisture" style="font-size: 4rem;"></i>
+          </div>
+          <div class="col-sm-5 col-4 d-flex gap-2 justify-content-center align-items-center">
+            <h5 class="windText h1">4</h5>
+            <i class="bi bi-wind " style="font-size: 4rem;"></i>
+          </div>
+        </div>
+
       </div>
-      
+
     </div>
-   
+
   </div>
 
 
