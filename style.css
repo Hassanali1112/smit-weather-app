@@ -6,9 +6,10 @@
 
 .weather-container {
   width: 400px;
-  height: 350px;
+  /* height: 350px; */
   background: rgba(52, 111, 156, 0.473);
   border-radius: 16px;
+  padding-bottom: 1rem;
 }
 
 body {
@@ -33,4 +34,11 @@ form input {
 .icon-container i {
   font-style: 4rem;
   border: 1px solid red;
+}
+
+
+@media screen and (max-width : 330px) {
+  .row i{
+    font-size: 3rem !important;
+  }
 }
