@@ -9,7 +9,7 @@ const text = document.querySelector(".text");
 const mosText = document.querySelector(".mosText");
 const windText = document.querySelector(".windText");
 
-const api_key = `79ca23bdb06c4c8599120627250201`;
+const api_key = `a080b81b403d55c2704906066c5e856a`;
 
 const randomNumber = () => {
   let randomNo = Math.ceil(Math.random() * 10);
@@ -25,32 +25,36 @@ form.addEventListener("submit", () => {
 async function getWeatherData(city_name) {
   weatherContainer.style.display = "block";
   weatherContainer.innerHTML = `<h5 class='text-center'>Loading ... </h5>`;
-  let url = `http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${city_name}&aqi=no`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=${api_key}&units=metric`;
   let response = await fetch(url);
   let data = await response.json();
-  console.log(data.error);
-  if (!data.error) {
+  if (data.cod === "404") {
+    weatherContainer.innerHTML = data.message;
+    weatherContainer.style.textAlign = "center";
+    cityName.value = "";
+  } else {
     weatherContainer.innerHTML = `
       <div class="icon-tem d-flex justify-content-center align-items-center mt-4 gap-2 py-2">
-            <img src="${data.current.condition.icon}" class="icon" width="70" height="70" alt="">
-            <h6 class="tem h1">${data.current.temp_c} &#8451;</h6>
+            <img src="http://openweathermap.org/img/w/${
+              data.weather[0].icon
+            }.png" class="icon" width="70" height="70" alt="">
+            <h6 class="tem h1">${Math.floor(data.main.temp)} &#8451;</h6>
           </div>
-          <div class="text text-center h4 text-capitalize">${data.current.condition.text}</div>
+          <div class="text text-center h4 text-capitalize">${
+            data.weather[0].main
+          }</div>
           <div class="row mx-1 justify-content-around gap-4 my-3">
             <div class="col-sm-5 col-4 d-flex gap-2 justify-content-center align-items-center">
-              <h5 class="mosText h1">${data.current.humidity}</h5>
+              <h5 class="mosText h1">${data.main.humidity}</h5>
               <i class="bi bi-moisture" style="font-size: 4rem;"></i>
             </div>
             <div class="col-sm-5 col-4 d-flex gap-2 justify-content-center align-items-center">
-              <h5 class="windText h1">${data.current.wind_kph}</h5>
+              <h5 class="windText h1">${data.wind.speed}</h5>
               <i class="bi bi-wind " style="font-size: 4rem;"></i>
             </div>
           </div>
     `;
     cityName.value = "";
-  } else {
-    weatherContainer.innerHTML = data.error.message;
-    weatherContainer.style.textAlign = "center";
   }
 }
 
